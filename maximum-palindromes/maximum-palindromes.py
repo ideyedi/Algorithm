@@ -14,8 +14,6 @@ def initialize(s):
 # This function is called once before all queries.
     global s_list 
     s_list = list(s)
-#    print(list(combinations(['1', '2', '3', '4', '5'],2)))
-#    print(list(permutations(['a','b', 'c', 'd', 'e'],2)))
 
 #
 # Complete the 'answerQuery' function below.
@@ -28,15 +26,24 @@ def initialize(s):
 def answerQuery(l, r):
 # Return the answer for this query modulo 1000000007.
     string = []
+    count = []
+    mux = []
+
     palin = 0
     drom = 0
     num = 0
+    n  = 0
+    base = 0
     cnt = dict()
+    a = 1
+    b = 1
+    total = 1
 
     # set list
     for i in range(l, r+1):
         string.append(s_list[i-1])
 
+    # make dictionary
     for word in string:
         if word not in cnt.keys():
             cnt[word] = 1
@@ -44,25 +51,19 @@ def answerQuery(l, r):
             cnt[word] += 1
 
     for i in cnt:
-        if cnt[i] >= 2:
-            palin += 1
-            num += cnt[i]//2
+        count.append(cnt[i]//2)
+        mux.append(cnt[i]%2)
+        n += 1
 
-        if cnt[i]%2 == 1:
-            drom += 1
+    print(count)
+    print(mux)
 
-    a = 1
-    b = 1
-    for i in range(palin):
-         a = a * (num - i)
-         b = b * (palin - i)
-
-    if palin == 0:
-        return drom
-    elif drom == 0:
-        return int(a/b)
-    else:
-        return int(a/b * drom)
+    for i in range(n - 1):
+        for j in range(count[i+1]):
+            a = a * (count[i] + 1 - j)
+            b = b * (count[i+1] - j)
+        print(a)
+        print(b)
 
 if __name__ == '__main__':
     s = input()
