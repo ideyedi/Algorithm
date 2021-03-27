@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<infos>
+    <info>
+        <country>Liechtenstein</country>
+        <city></city>
+        <year>2008</year>
+        <rank>1</rank>
+        <gdppc>141100</gdppc>
+        <Neighborhood>Austria</Neighborhood>
+    </info>
+    <info>
+        <country>Singapore</country>
+        <city></city>
+        <year>2011</year>
+        <rank>4</rank>
+        <gdppc>59900</gdppc>
+        <Neighborhood>Malaysia</Neighborhood>
+    </info>
+    <info>
+        <country>Panama</country>
+        <city></city>
+        <year>2011</year>
+        <rank>68</rank>
+        <gdppc>13600</gdppc>
+        <Neighborhood>Columbia</Neighborhood>
+    </info>
+    <info>
+        <country></country>
+        <city>New York</city>
+        <year>2015</year>
+        <rank>1</rank>
+        <gdppc></gdppc>
+        <Neighborhood>Boston</Neighborhood>
+    </info>
+        <info>
+        <country></country>
+        <city>Boston</city>
+        <year>2015</year>
+        <rank>4</rank>
+        <gdppc></gdppc>
+        <Neighborhood>New York</Neighborhood>
+    </info>
+</infos>
