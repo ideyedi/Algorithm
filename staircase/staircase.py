@@ -8,12 +8,9 @@ import sys
 n = int(input())
 tmp = " "
 crosshatch = "#"
-for i in range(0, n):
-    string = ""
-    for j in range(0, n):
-        count = n - 1 - i
-        if j >= count:
-            string += crosshatch
-        else:
-            string += tmp
-    print(string)
+space = " "
+
+for idx in range(n):
+	prtf = space * (n-idx-1) + crosshatch * (idx+1)
+	print(prtf)
+
