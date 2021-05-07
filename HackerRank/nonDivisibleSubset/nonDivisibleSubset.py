@@ -16,13 +16,7 @@ import sys
 #
 
 def nonDivisibleSubset(k, s):
-    mod_list = []
     
-    for i in range(len(s)):
-        mod_list.append(s[i]%k)
-	
-    #print(mod_list)
-    #Maybe we make dictionary type ..?? mod 0 : count, mod 1 : count .. and so on..
 
 first_multiple_input = input().rstrip().split()
 n = int(first_multiple_input[0])
