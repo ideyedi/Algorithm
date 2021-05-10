@@ -1,4 +1,4 @@
-# Algorithmg
+# eyedi's Algorithm study
 
 python programming study(pandas, crawler)
 Sorting, Grapicial algorithm
