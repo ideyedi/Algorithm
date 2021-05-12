@@ -34,9 +34,30 @@ def quicksort(A:list, p:int, r:int):
         quicksort(A, q+1, r)
 
 
-A = [3, 1, 2, 3, 4, 1]
+# Quick selection problem
+# 뭔가 문제가 좀 있네....
+def select(A, p, r, i):
+    if p == r:
+        return A[p]
 
+    q = partion(A, p, r)
+    print("q:{}, p {}, r {}, i {}".format(q, p, r, i))
+    print(A)
+    k = q - p + 1
+
+    if i == k:
+        return A[q]
+    elif i < k:
+        return select(A, p, q-1, i)
+    else:
+        return select(A, q+1, r, i+k)
+
+
+# -------------------- 
+A = [3, 1, 2, 3, 4, 1]
 print(A)
 #partion(A, 0, len(A)-1)
-quicksort(A, 0, len(A)-1)
+#quicksort(A, 0, len(A)-1)
+a = select(A, 0, len(A)-1, 2)
+print("result:{}".format(a))
 print(A)
