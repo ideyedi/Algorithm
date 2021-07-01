@@ -31,3 +31,7 @@ rank = [1, 2, 3, 4, 5, 6]
 print(dic.values())
 print(list(zip(dic, rank)))
 print(dict(zip(dic, rank)))
+
+a_list = list(zip(A,B))
+# Zipping된 list 하나의 요소는 Tuple로 구성된다.
+print(a_list[0])
