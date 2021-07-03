@@ -11,9 +11,8 @@ def MemorizedCutRodAux(p, n, r):
     if n == 0:
         q = 0
     else:
-        for i in range(n+1):
-            print(i)
-            q = -sys.maxsize
+        q = -sys.maxsize
+        for i in range(1, n+1):
             q = max(q, p[i] + MemorizedCutRodAux(p, n-i, r))
 
     r[n] = q
@@ -23,6 +22,7 @@ def MemorizedCutRodAux(p, n, r):
 
 def MemorizedCutRod(p, n):
     r = [-sys.maxsize for _ in range(n + 1)]
+    print(r)
     return MemorizedCutRodAux(p, n, r)
 
 
