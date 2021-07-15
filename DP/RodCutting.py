@@ -16,13 +16,11 @@ def MemorizedCutRodAux(p, n, r):
             q = max(q, p[i] + MemorizedCutRodAux(p, n-i, r))
 
     r[n] = q
-    print(r)
     return q
 
 
 def MemorizedCutRod(p, n):
     r = [-sys.maxsize for _ in range(n + 1)]
-    print(r)
     return MemorizedCutRodAux(p, n, r)
 
 
@@ -30,4 +28,5 @@ p = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
 length = 5
 
 ret = MemorizedCutRod(p, length)
+print("Rod : {}, Price table : {}".format(length, p))
 print(ret)
