@@ -1,4 +1,4 @@
-#from typing import List
+from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -12,7 +12,8 @@ class Solution:
         
         return answer
 
-
-#nums = [3, 2, 6]
-#target = 6
-#print(Solution.twoSum(nums, target))
+sol = Solution()
+nums = [3, 2, 4]
+target = 6
+result = sol.twoSum(nums, target)
+print(result)
