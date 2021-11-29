@@ -1,6 +1,11 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-       return x
+        x = list(x)
+        print(x)
+        
+        #for item in len(x):
+        #    print(item)
+        return x
 
 
 x = 121
