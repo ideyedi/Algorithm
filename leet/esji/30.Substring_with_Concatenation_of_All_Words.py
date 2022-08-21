@@ -15,7 +15,10 @@ class Solution:
         # 's' null check input value
         # 'words' null check condition list
         # 조건, 입력 값이 null이면 반환 값을 null로 설정한다.
-        if s is None or len(s) == 0 or words is None or words_len == 0:
+        if (s is None
+                or len(s) == 0
+                or words is None
+                or words_len == 0):
             return indices
 
         # 해당하는 word가 문자열 안에 있을 경우 count 딕셔너리에 추가, key는 word 자체
