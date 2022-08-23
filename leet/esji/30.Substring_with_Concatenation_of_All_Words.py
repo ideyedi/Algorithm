@@ -6,20 +6,19 @@ class Solution:
         # 반환 값 리스트
         indices = []
         word_count = {}
-        # word length는 모두 같다고 가정하고 있다.
-        word_length = len(words[0])
         words_len = len(words)
-        # 서브 스트링의 총 길이
-        word_array_length = word_length * words_len
 
         # 's' null check input value
         # 'words' null check condition list
         # 조건, 입력 값이 null이면 반환 값을 null로 설정한다.
-        if (s is None
-                or len(s) == 0
-                or words is None
-                or words_len == 0):
+        if (not s or not words):
             return indices
+
+        # word length는 모두 같다고 가정하고 있다.
+        word_length = len(words[0])
+        # 서브 스트링의 총 길이
+        word_array_length = word_length * words_len
+
 
         # 해당하는 word가 문자열 안에 있을 경우 count 딕셔너리에 추가, key는 word 자체
         # 값이 없을 경우 1로 설정
@@ -73,4 +72,11 @@ if __name__ == "__main__":
     obj = Solution()
 
     print(obj.findSubstring(s, words))
+
+    s = ""
+    words = ["bar"]
+    obj = Solution()
+
+    print(obj.findSubstring(s, words))
+
 
