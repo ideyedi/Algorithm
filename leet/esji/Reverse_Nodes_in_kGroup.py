@@ -12,13 +12,6 @@ class Solution:
     def __init__(self):
         pass
 
-    def __reversed(self):
-        """
-        Private method
-        :return: reversed linked list
-        """
-        return 0
-
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         """
         :param head: input linked list, range 0 <= head.val <= 1000
@@ -42,7 +35,6 @@ class Solution:
             curr = curr.next
             count += 1
 
-        count -= 1
         # next node가 NoneType일 경우 순회를 종료
         while next_node:
             curr = prev.next
