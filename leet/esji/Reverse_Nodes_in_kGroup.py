@@ -12,7 +12,7 @@ class Solution:
     def __init__(self):
         pass
 
-    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+    def reverseKGroupPhase1(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         """
         :param head: input linked list, range 0 <= head.val <= 1000
         :param k: Range 1 <= k <= n <= 5000
@@ -50,9 +50,41 @@ class Solution:
                 next_node = curr.next
 
             prev = curr
-            count -= k
 
         return swap_node.next
+
+    def reverseKGroup(self, head: ListNode, k: int) -> Optional[ListNode]:
+        if k == 1 or not head:
+            return head
+
+        dummy = ListNode(0)
+        dummy.next = head
+        start = dummy
+        end = head
+        count = 0
+
+        while end:
+            count += 1
+            if count % k == 0:
+                start = self.__reverse(start, end.next)
+                end = start.next
+            else:
+                end = end.next
+        return dummy.next
+
+    def __reverse(self, start, end):
+        prev, curr = start, start.next
+        first = curr
+        while curr != end:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+
+        start.next = prev
+        first.next = curr
+
+        return first
 
 
 def print_linked_list(nodes):
