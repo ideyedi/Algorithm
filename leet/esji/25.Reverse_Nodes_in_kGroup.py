@@ -54,15 +54,26 @@ class Solution:
         return swap_node.next
 
     def reverseKGroup(self, head: ListNode, k: int) -> Optional[ListNode]:
+        """
+        :param head:
+        :param k:
+        :return:
+        Reference solution
+        """
         if k == 1 or not head:
             return head
-
-        dummy = ListNode(0)
-        dummy.next = head
+        # 더미 노드 생성, 내가 했던 방식이랑 동일한 소스 인거 같은데
+        #dummy = ListNode(0, None)
+        #dummy.next = head
+        dummy = ListNode(-1, head)
         start = dummy
+        # Q: end의 사용처는 무엇인가
         end = head
         count = 0
 
+        # 처음 Linked List의 count check loop가 없음
+        # 아 count, k의 나머지를 이용해서 끝에 남는 부분을 걸러냈구나!
+        # 나머지가 0일 경우 swap을 수행
         while end:
             count += 1
             if count % k == 0:
@@ -73,6 +84,15 @@ class Solution:
         return dummy.next
 
     def __reverse(self, start, end):
+        """
+        :discription
+        입력받은 리스트를 뒤집는 함수
+        :param start:
+        :param end:
+        :return:
+        """
+        # swap 로직 자체는 차이가 없음..
+        # 그래도 함수로 뺀게 더 나이스함
         prev, curr = start, start.next
         first = curr
         while curr != end:
