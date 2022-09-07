@@ -21,6 +21,18 @@ class Solution:
 
         return True
 
+    def best_practice(self, x: int) -> bool:
+        """
+        leetcode best practice ;;
+        허미
+        """
+        x=str(x)
+        res=list(x)
+        print(res[::-1])
+        if res[::-1]==list(x):
+            return True
+        else:
+            return False
 
 if __name__ == "__main__":
     x = 121
