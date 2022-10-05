@@ -24,8 +24,10 @@ class Solution:
             upper = s // 10
             curr.val = s % 10
             
-            curr.next = ListNode()
-            curr = curr.next
+            if l1.next or l2.next:
+                curr.next = ListNode()
+                curr = curr.next
+            
             l1 = l1.next
             l2 = l2.next 
 
@@ -44,8 +46,8 @@ def print_linked_list(nodes):
 
 
 if __name__ == "__main__":
-    l1 = ListNode(2, ListNode(4, ListNode(3)))
-    l2 = ListNode(5, ListNode(6, ListNode(4)))
+    l1 = ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9))))))))
+    l2 = ListNode(9, ListNode(9, ListNode(9, ListNode(9))))
     sol = Solution()
     #print(sol.addTwoNumbers(l1, l2))
     print_linked_list(sol.addTwoNumbers(l1, l2))
