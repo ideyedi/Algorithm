@@ -33,6 +33,8 @@ class Solution:
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
 
+        # return list
+        # return list.next 차이, dummy node를 제외하고 리턴할 수 있음
         return sum_list.next
 
 
