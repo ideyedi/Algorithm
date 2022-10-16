@@ -14,28 +14,29 @@ class Solution:
         pass
 
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        sum_list = ListNode()
-        curr = sum_list
-        upper = 0
+        dummy_node = ListNode()
+        curr = dummy_node
+        carry = 0
 
-        # and 연산이 아니고 or로 처리해야하며, upper 값도 조건에 추가
-        while l1 or l2 or upper:
+        # and 연산이 아니고 or로 처리해야하며, carry 값도 조건에 추가
+        while l1 or l2 or carry:
             # 10 이상으로 합이 넘어 온 경우 먼저 처리해야함
             # l1, l2를 따로 구분해서 처리해야하는 구나..
             l1_val = l1.val if l1 else 0
             l2_val = l2.val if l2 else 0
-            column_sum = l1_val + l2_val + upper
+            column_sum = l1_val + l2_val + carry
             # 이런식으로 구현하는게 더 깔끔한듯
-            upper = column_sum // 10
+            carry = column_sum // 10
             new_node = ListNode(column_sum % 10)
             curr.next = new_node
             curr = new_node
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
+            #print(f'{l1} / {l2} / {carry}')
 
         # return list
         # return list.next 차이, dummy node를 제외하고 리턴할 수 있음
-        return sum_list.next
+        return dummy_node.next
 
 
 def print_linked_list(nodes):
