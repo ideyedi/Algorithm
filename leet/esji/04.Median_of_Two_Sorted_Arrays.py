@@ -43,4 +43,3 @@ if __name__ == "__main__":
     solution = Solution()
     ret = solution.findMedianSortedArrays(num1, num2)
     print(f'Output: {ret}')
-
