@@ -18,7 +18,6 @@ class Solution:
         # median, index1, index2
         m, i, j = 0, 0, 0
 
-        # pivot이 따로 설정되어야..?
         while i < length_1 and j < length_2:
             if nums1[i] < nums2[j]:
                 ret.append(nums1[i])
@@ -35,6 +34,22 @@ class Solution:
             m = (ret[m_index] + ret[m_index - 1]) / 2
 
         return m
+
+
+class BestExample:
+    def find_median_sorted_arrays(self, nums1: List[int], nums2: List[int]) -> float:
+        nums3 = []
+        nums3 = nums1 + nums2
+        nums3.sort()
+        p = len(nums3)
+
+        if (p%2 == 0):
+            mid = p//2
+            median = (nums3[mid]+nums3[mid-1])/2
+        else:
+            mid = p//2
+            median = nums3[mid]
+        return median
 
 
 if __name__ == "__main__":
