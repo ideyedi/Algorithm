@@ -1,4 +1,6 @@
 #! python
+import random
+
 
 class RandomizedSet:
 
@@ -23,7 +25,14 @@ class RandomizedSet:
             return False
 
     def getRandom(self) -> int:
-        pass
+        print(len(self.datas))
+        print(self.datas)
+        print(self.datas[0])
+        #index = random.randrange(len(self.datas) - 1)
+        #ret = self.datas[index]
+        #del self.datas[index]
+        #print(self.datas)
+        #return ret
 
 
 if __name__ == "__main__":
