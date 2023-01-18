@@ -23,12 +23,20 @@ import sys
 
 
 def dfs(graph, start, visited=None):
+    """
+    Depth-first search function
+    여기서 효율을 가져갈 수 있는 방법이 있었을까?
+    """
+    # 방문 노드 기록 set이 없을 경우 생성
     if visited is None:
         visited = set()
+
     visited.add(start)
 
-    for next in graph[start] - visited:
-        dfs(graph, next, visited)
+    print(f"{graph[start] - visited}, start: {start}, v: {visited}")
+    for next_node in graph[start] - visited:
+        dfs(graph, next_node, visited)
+
     return visited
 
 
@@ -45,28 +53,26 @@ def maximumDifference(g_nodes, g_from, g_to):
     diff = 0
 
     for i in range(len(g_from)):
-        #print(g_from[i], g_to[i])
         graph_map[g_from[i]].add(g_to[i])
 
-    #print(graph_map)
-    print(dfs(graph_map, 1))
+    print(graph_map)
     for n in range(1, g_nodes+1):
-        ret = dfs(graph_map, n)
-        if len(ret) > 1:
-            path.append(list(ret))
+        v = dfs(graph_map, n)
+        if len(v) > 1:
+            path.append(list(v))
 
     for item in path:
         diff = max(diff, max(item) - min(item))
 
-    print(diff)
     return diff
-
 
 
 if __name__ == '__main__':
     nodes = 5
     n_from = [1, 1, 2, 2, 3, 4]
     n_to = [2, 3, 3, 4, 4, 5]
+
+    # multi components 예시
     #n_from = [1, 3, 4]
     #n_to = [2, 4, 5]
 
