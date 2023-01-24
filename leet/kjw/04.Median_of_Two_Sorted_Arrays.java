@@ -15,6 +15,7 @@ class Solution {
         } else {
             result = mergeArray[medianIndex];
         }
+        
         return result;
     }
 }
