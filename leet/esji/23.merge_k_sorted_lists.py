@@ -1,6 +1,7 @@
 from typing import List
 from typing import Optional
 
+import heapq
 
 # Definition for singly-linked list.
 class ListNode:
@@ -10,7 +11,7 @@ class ListNode:
 
 
 class Solution:
-    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    def _mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         ret = ListNode()
         dummy = ret
         curr = ret
@@ -34,6 +35,21 @@ class Solution:
 
         return ret
 
+    def merge_k_lists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        nodes = []
+        head = point = ListNode(0)
+
+        for l in lists:
+            while l:
+                nodes.append(l.val)
+                l = l.next
+
+        for x in sorted(nodes):
+            point.next = ListNode(x)
+            point = point.next
+
+        return head.next
+
     def print_list_node(self, nodes):
         while nodes is not None:
             print(f"{nodes.val}", end="-")
@@ -50,6 +66,8 @@ if __name__ == "__main__":
     lists = [list1, list2, list3]
     ins = Solution()
 
-    ret = ins.mergeKLists(lists)
+    #ret = ins.mergeKLists(lists)
+    ret = ins.merge_k_lists(lists)
     ins.print_list_node(ret)
+    #ins.print_list_node(ret)
     #ins.print_list_node(list1)
