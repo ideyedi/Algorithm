@@ -15,11 +15,14 @@ class Solution:
         nodes = []
         head = point = ListNode(0)
 
+        # 모든 링크드 리스트를 하나의 리스트로 통합
         for l in lists:
             while l:
                 nodes.append(l.val)
                 l = l.next
 
+        # Python Sorted O(nlogn)
+        # 정렬된 리스트를 이용하여 새로운 linked list를 만든다.
         for x in sorted(nodes):
             point.next = ListNode(x)
             point = point.next
@@ -30,7 +33,6 @@ class Solution:
         while nodes is not None:
             print(f"{nodes.val}", end="-")
             nodes = nodes.next
-
         print("")
 
 
