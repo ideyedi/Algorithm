@@ -11,30 +11,6 @@ class ListNode:
 
 
 class Solution:
-    def _mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        ret = ListNode()
-        dummy = ret
-        curr = ret
-
-        while len(lists) != 0:
-            print(lists, len(lists))
-            tmp = []
-
-            for ls in lists:
-                tmp.append(ls.val)
-
-            m = min(tmp)
-            curr.val = m
-            curr.next = ListNode()
-            curr = curr.next
-
-            i = tmp.index(m)
-            lists[i] = lists[i].next
-            if lists[i] is None:
-                lists.remove(lists[i])
-
-        return ret
-
     def merge_k_lists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         nodes = []
         head = point = ListNode(0)
