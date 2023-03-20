@@ -26,6 +26,7 @@ def memoization_fibo(n, memo={}):
 
 
 # decorator를 이용한 memoization
+# decorator를 사용하는 경우가 코드 파악이 쉽다.
 def memoize(func):
     cache = {}
 
