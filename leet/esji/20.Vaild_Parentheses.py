@@ -3,14 +3,28 @@ from typing import List
 
 
 class Solution:
-    start_brackets: List[str] = ['(', '[', '{']
-
     def isValid(self, s: str) -> bool:
-        ret = False
-
-        return ret
+        stack = []
+        for char in s:
+            if char in ["(", "{", "["]:
+                stack.append(char)
+            else:
+                if not stack:
+                    return False
+                if char == ")" and stack[-1] == "(":
+                    stack.pop()
+                elif char == "}" and stack[-1] == "{":
+                    stack.pop()
+                elif char == "]" and stack[-1] == "[":
+                    stack.pop()
+                else:
+                    return False
+        return not stack
 
 
 if __name__ == "__main__":
-    s: str = "()"
+    req : str = "()"
     #s: str = "{[}]"
+
+    s = Solution()
+    print(s.isValid(req))
