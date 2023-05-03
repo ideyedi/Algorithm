@@ -5,32 +5,52 @@
 # BFS algorithm
 from collections import deque
 
-# G : Matrix
-# s : vertex
-def BreathFirstSearch(G, s):
-    adjacency_nodes = deque([s])
-    visited_nodes = [s]
+def bfs(graph, start, visited=None):
+    q = deque([start])
 
-    while adjacency_nodes:
-        node = adjacency_nodes.popleft()
+    visited[start] = True
 
-        for adjacency_node in G[node]
-            if adjacency_node not in visited_nodes:
-                visited_node.append(adjacency_node)
-                adjacency_nodes.append(adjacency_node)
-                # distance[adjacency_node] = distance[node] + 1
+    while q:
+        n = q.popleft()
+        
+        for i in graph[n]:
+            if not visited[i]:
+                q.append(i)
+                visited[i] = True
 
-    return visited_nodes
+    return visited
 
-G = {
-    'A': set(['B', 'F', 'I']),
-    'B': ,
-    'C': ,
-    'D': ,
-    'E': ,
-    'F': ,
-    'G': ,
-    'H': ,
-    'I': 
-}
 
+graph = {0: set([1, 2]),
+         1: set([0, 3, 4]),
+         2: set([0]),
+         3: set([1]),
+         4: set([2, 3])}
+
+v = [False for _ in range(len(graph) + 1)]
+print(v)
+print(bfs(graph, '0', v))
+
+"""
+"""
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    visited.add(start)
+    while queue:
+        vertex = queue.popleft()
+        print(vertex)
+        for neighbor in graph[vertex]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+
+# Example usage:
+graph = {'A': ['B', 'C'],
+         'B': ['A', 'D', 'E'],
+         'C': ['A', 'F'],
+         'D': ['B'],
+         'E': ['B', 'F'],
+         'F': ['C', 'E']}
+
+bfs(graph, 'A')
